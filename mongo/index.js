@@ -30,13 +30,16 @@ let UsersSchema = mongoose.Schema({
 
 const BoardsSchema = mongoose.Schema({
   board_id: { type: String },
+  area: { type: String },
   writer: { type: String },
   title: { type: String },
-  contents: { type: String },
+  max_worker: { type: Number },
+  duration: { type: String },
   comment: [{
-    id: { type: Number },
-    writer: { type: String },
-    summary: { type: String }
+    name: { type: Number },
+    summary: { type: String },
+    working_area: { type: String },
+    exprience_day: { type: Number },
   }]
 });
 

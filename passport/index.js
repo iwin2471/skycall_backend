@@ -1,9 +1,11 @@
-var social = require('./social.json');
 import passport from 'passport';
 import GitHubTokenStrategy from 'passport-github-token'
 import FacebookTokenStrategy from 'passport-facebook-token'
 import TwitterTokenStrategy from 'passport-twitter-token'
+
+const social = require('./social.json');
 const LocalStrategy = require('passport-local').Strategy;
+
 
 module.exports = (Users) => {
 
@@ -13,8 +15,6 @@ module.exports = (Users) => {
 
   //passport setting
   passport.use(new LocalStrategy({ // local 전략을 세움
-    usernameField: 'id',
-    passwordField: 'passwd',
     session: true, // 세션에 저장 여부
     passReqToCallback: false,
   }, async function (id, passwd, done) {
