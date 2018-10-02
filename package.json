@@ -1,0 +1,40 @@
+{
+  "name": "test",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "test": "NODE_ENV=test mocha ./app.spec.js",
+    "start": "cross-env nodemon --ignore 'public/js/*' --exec babel-node ./bin/www"
+  },
+  "dependencies": {
+    "Q": "*",
+    "await-to-js": "*",
+    "axios": "*",
+    "body-parser": "~1.15.1",
+    "cookie-parser": "~1.4.3",
+    "cookie-session": "^2.0.0-beta.3",
+    "cross-env": "^5.1.0",
+    "debug": "~2.2.0",
+    "ejs": "~2.4.1",
+    "express": "~4.13.4",
+    "moment-timezone": "*",
+    "mongoose": "*",
+    "morgan": "~1.7.0",
+    "multer": "*",
+    "passport": "*",
+    "passport-facebook-token": "*",
+    "passport-github-token": "*",
+    "passport-local": "^1.0.0",
+    "passport-twitter-token": "*",
+    "randomstring": "*",
+    "serve-favicon": "~2.3.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-plugin-transform-function-bind": "^6.22.0",
+    "babel-plugin-transform-regenerator": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-3": "^6.24.1"
+  }
+}

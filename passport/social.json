@@ -1,0 +1,19 @@
+{
+  "facebook": {
+    "use": true,
+    "clientID": "495970717436607",
+    "clientSecret": "1f8603bbbba9b072520b0cb51b1bd20b"
+  },
+
+  "twitter": {
+    "use": false,
+    "consumerKey": "",
+    "consumerSecret": ""
+  },
+
+  "github": {
+    "use": false,
+    "clientID": "",
+    "clientSecret": ""
+  }
+}
