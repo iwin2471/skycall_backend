@@ -1,42 +1,49 @@
 import mongoose from 'mongoose';
 import rndString from "randomstring";
 
-var name = require('../package.json');
-//mongodb will connect to localhost/projectname
+import { name } from '../package.json';
 
-var db = mongoose.connect('mongodb://localhost/'+name.name);
+let db = mongoose.connect(
+  "mongodb://localhost/" + name, { useNewUrlParser: true }
+);
 mongoose.Promise = global.Promise;
 
-var UsersSchema = mongoose.Schema({
-  id: {type: String},
-  passwd: {type: String},
-  name: {type: String},
-  token: {type: String},
-  setting: {type: String},
-  profile: {type: String},
-  profile_img: {type: String}, // url을 넣으주면됨
-  facebook_id: {type: String},
-  github_id: {type: String},
-  twitter_id: {type: String},
-  is_admin: {type: Boolean, default: false}//어드민 체크 할때 0: 일반 1: 어드민
+let UsersSchema = mongoose.Schema({
+  id: { type: String, unique: true },
+  passwd: { type: String },
+  name: { type: String },
+  token: { type: String },
+  sub_name: { type: String },
+  business_name: { type: String },
+  business_area: { type: String },
+  business_start_day: { type: Date },
+  business_reg_number: { type: String },
+  phone_number: { type: String },
+  accept_height: { type: Number },
+
+
+  profile_img: { type: String },
+  facebook_id: { type: String },
+  twitter_id: { type: String },
+  type: { type: Boolean, default: false } //발주자 true 수주자 false
 });
 
-var BoardsSchema = mongoose.Schema({
-  board_id: {type: String},
-  writer: {type: String},
-  title: {type: String},
-  contents: {type: String},
-  comment:[{
-    id: {type: Number},
-    writer: {type: String},
-    summary: {type: String}
+const BoardsSchema = mongoose.Schema({
+  board_id: { type: String },
+  writer: { type: String },
+  title: { type: String },
+  contents: { type: String },
+  comment: [{
+    id: { type: Number },
+    writer: { type: String },
+    summary: { type: String }
   }]
 });
 
 require('./err')(UsersSchema, BoardsSchema, rndString);
 
-var Users = mongoose.model("users", UsersSchema);
-var Boards = mongoose.model("boards", BoardsSchema);
+const Users = mongoose.model("users", UsersSchema);
+const Boards = mongoose.model("boards", BoardsSchema);
 
 exports.Users = Users;
 exports.Boards = Boards;
