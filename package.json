@@ -1,5 +1,5 @@
 {
-  "name": "test",
+  "name": "skycall",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -8,18 +8,18 @@
   },
   "dependencies": {
     "Q": "*",
-    "await-to-js": "*",
+    "await-to-js": "^2.0.1",
     "axios": "*",
-    "body-parser": "~1.15.1",
+    "body-parser": "^1.18.3",
     "cookie-parser": "~1.4.3",
     "cookie-session": "^2.0.0-beta.3",
     "cross-env": "^5.1.0",
     "debug": "~2.2.0",
     "ejs": "~2.4.1",
-    "express": "~4.13.4",
+    "express": "^4.16.3",
     "moment-timezone": "*",
     "mongoose": "*",
-    "morgan": "~1.7.0",
+    "morgan": "^1.9.1",
     "multer": "*",
     "passport": "*",
     "passport-facebook-token": "*",
@@ -27,7 +27,7 @@
     "passport-local": "^1.0.0",
     "passport-twitter-token": "*",
     "randomstring": "*",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

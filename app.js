@@ -9,17 +9,20 @@ import fs from 'fs';
 import axios from 'axios';
 import moment from 'moment-timezone';
 import cookieSession from 'cookie-session';
+import to from 'await-to-js';
+
 let debug = require('debug')('dicon:server');
 
 //external module setting
 let now_time = moment().tz("Asia/Seoul");
 
 
-let app = express();
+const app = express();
 
 //module setting
-import {Users} from './mongo';
-let passport = require('./passport')(Users);
+import { Users } from './mongo';
+const passport = require("./passport")(Users);
+
 
 //function
 require('./func');
@@ -45,9 +48,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //router setting
-var router = require('./routes/index')(express, Users, passport, now_time);
+import index from "./routes/index";
+import auth from "./routes/auth";
 
-//router setting
-app.use('/', router);
+//router use
+app.use("/", index(express.Router()));
+app.use("/auth", auth(express.Router(), passport, Users, to));
 
 module.exports = app;
